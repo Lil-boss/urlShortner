@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>URL Shortened Successfully!</h1>
+    <p>Short URL: <a target="_blank" th:href="@{/{shortUrl}(shortUrl=${shortUrl})}" th:text="${shortUrl}"></a></p>
+    <a href="/">Shorten another URL</a>
+    <a href="/history">View URL History</a>
+</div>
+</body>
+</html>

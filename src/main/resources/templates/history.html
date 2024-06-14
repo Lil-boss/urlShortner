@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>URL History</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Generated URLs</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Original URL</th>
+            <th>Short URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="url : ${urls}">
+            <td th:text="${url.originalUrl}"></td>
+            <td><a th:href="${url.shortUrl}" th:text="${url.shortUrl}"></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a href="/">Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
