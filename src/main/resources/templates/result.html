@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>URL Shortener</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -7,9 +7,23 @@
 <body>
 <div class="container">
     <h1>URL Shortened Successfully!</h1>
-    <p>Short URL: <a target="_blank" th:href="@{/{shortUrl}(shortUrl=${shortUrl})}" th:text="${shortUrl}"></a></p>
+    <div class="url-container">
+        <p id="shortUrl" th:text="'http://localhost:9000/'+${shortUrl}">Short URL</p>
+        <button onclick="copyToClipboard()">Copy URL</button>
+    </div>
     <a href="/">Shorten another URL</a>
     <a href="/history">View URL History</a>
 </div>
+
+<script>
+  function copyToClipboard() {
+    var copyText = document.getElementById("shortUrl").textContent;
+    navigator.clipboard.writeText(copyText).then(function() {
+      alert("Copied to clipboard: " + copyText);
+    }, function(err) {
+      console.error('Could not copy text: ', err);
+    });
+  }
+</script>
 </body>
 </html>

@@ -17,13 +17,11 @@
         <tbody>
         <tr th:each="url : ${urls}">
             <td th:text="${url.originalUrl}"></td>
-            <td><a th:href="${url.shortUrl}" th:text="${url.shortUrl}"></a></td>
+            <td><a target="_blank" th:href="${url.shortUrl}" th:text="'http://localhost:9000/'+${url.shortUrl}"></a></td>
         </tr>
         </tbody>
     </table>
-    <div>
-        <a href="/">Back to Home</a>
-    </div>
+    <a href="/">Back to Home</a>
 </div>
 </body>
 </html>
